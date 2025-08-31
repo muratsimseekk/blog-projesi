@@ -15,9 +15,105 @@ body {
   min-height: 100vh;
 }
 
+/* Navigation styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 20px rgba(220, 38, 38, 0.1);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 70px;
+}
+
+.nav-logo a {
+  color: #dc2626;
+  text-decoration: none;
+  font-size: 1.5rem;
+  font-weight: bold;
+  font-family: "Poppins", sans-serif;
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0;
+}
+
+.nav-item {
+  margin: 0;
+  padding: 0;
+}
+
+.nav-link {
+  color: #2d3748;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  font-size: 0.9rem;
+  font-weight: 500;
+  white-space: nowrap;
+  display: block;
+  line-height: 1;
+}
+
+.nav-link:hover {
+  background: rgba(220, 38, 38, 0.1);
+  color: #dc2626;
+}
+
+.nav-link.active {
+  background: #dc2626;
+  color: white;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 5px;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background: #dc2626;
+  margin: 3px 0;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+.hamburger.active .bar:nth-child(1) {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.active .bar:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active .bar:nth-child(3) {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Container için top margin ekle */
 .container {
   max-width: 1000px;
-  margin: 0 auto;
+  margin: 90px auto 0;
   padding: 30px 20px;
 }
 
@@ -303,10 +399,430 @@ li {
   font-weight: 500;
 }
 
+.app-review {
+  background: #ffffff;
+  color: #2d3748;
+  border: 2px solid rgba(220, 38, 38, 0.15);
+  position: relative;
+}
+
+.app-review::before {
+  content: "📱";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.1;
+}
+
+.app-review h3 {
+  color: #dc2626;
+  border-bottom: 2px solid rgba(220, 38, 38, 0.1);
+  padding-bottom: 10px;
+}
+
+.app-review h3::after {
+  display: none;
+}
+
+.highlight-box {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border: 2px solid #f59e0b;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 20px 0;
+  position: relative;
+}
+
+.highlight-box::before {
+  content: "💡";
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  background: #f59e0b;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.highlight-box p {
+  margin: 0;
+  color: #92400e;
+  font-weight: 500;
+}
+
+/* Tablo stilleri */
+.comparison-table {
+  overflow-x: auto;
+  margin: 20px 0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.1);
+}
+
+th,
+td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid rgba(220, 38, 38, 0.1);
+}
+
+th {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  color: white;
+  font-weight: 600;
+  font-family: "Poppins", sans-serif;
+}
+
+tr:hover {
+  background: rgba(220, 38, 38, 0.05);
+}
+
+/* Yeni sınıflar için stiller */
+.restaurant-category,
+.menu-review,
+.price-comparison,
+.selection-tips,
+.future-trends {
+  background: #ffffff;
+  color: #2d3748;
+  border: 2px solid rgba(220, 38, 38, 0.15);
+  position: relative;
+}
+
+.restaurant-category::before {
+  content: "🍽️";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.1;
+}
+
+.menu-review::before {
+  content: "📋";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.1;
+}
+
+.price-comparison::before {
+  content: "💰";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.1;
+}
+
+.selection-tips::before {
+  content: "💡";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.1;
+}
+
+.future-trends::before {
+  content: "🚀";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.1;
+}
+
+/* Kurye sayfası için yeni sınıflar */
+.courier-system,
+.delivery-experience,
+.courier-challenges,
+.new-tech,
+.courier-income,
+.customer-experience {
+  background: #ffffff;
+  color: #2d3748;
+  border: 2px solid rgba(220, 38, 38, 0.15);
+  position: relative;
+}
+
+.courier-system::before {
+  content: "🚚";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.1;
+}
+
+.delivery-experience::before {
+  content: "⚡";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.1;
+}
+
+.courier-challenges::before {
+  content: "⚠️";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.1;
+}
+
+.new-tech::before {
+  content: "🤖";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.1;
+}
+
+.courier-income::before {
+  content: "💰";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.1;
+}
+
+.customer-experience::before {
+  content: "👥";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.1;
+}
+
+/* Kampanya sayfası için yeni sınıflar */
+.app-campaigns,
+.bank-campaigns,
+.student-campaigns,
+.discount-codes,
+.premium-subscriptions,
+.future-campaigns {
+  background: #ffffff;
+  color: #2d3748;
+  border: 2px solid rgba(220, 38, 38, 0.15);
+  position: relative;
+}
+
+.app-campaigns::before {
+  content: "🎯";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.1;
+}
+
+.bank-campaigns::before {
+  content: "💳";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.1;
+}
+
+.student-campaigns::before {
+  content: "🎓";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.1;
+}
+
+.discount-codes::before {
+  content: "🎫";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.1;
+}
+
+.premium-subscriptions::before {
+  content: "⭐";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.1;
+}
+
+.future-campaigns::before {
+  content: "🚀";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.1;
+}
+
+/* Ödeme yöntemleri sayfası için yeni sınıflar */
+.credit-card-payment,
+.bank-card-options,
+.digital-wallets,
+.crypto-payment,
+.installment-options,
+.security-protection {
+  background: #ffffff;
+  color: #2d3748;
+  border: 2px solid rgba(220, 38, 38, 0.15);
+  position: relative;
+}
+
+.credit-card-payment::before {
+  content: "🏦";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.1;
+}
+
+.bank-card-options::before {
+  content: "💳";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.1;
+}
+
+.digital-wallets::before {
+  content: "📱";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.1;
+}
+
+.crypto-payment::before {
+  content: "🚀";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.1;
+}
+
+.installment-options::before {
+  content: "📊";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.1;
+}
+
+.security-protection::before {
+  content: "🔐";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.1;
+}
+
+/* Kod listesi stilleri */
+.code-list {
+  margin: 20px 0;
+}
+
+.code-item {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border: 2px solid #f59e0b;
+  border-radius: 12px;
+  padding: 15px 20px;
+  margin: 15px 0;
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #92400e;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.code-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(245, 158, 11, 0.2);
+}
+
+.code-item strong {
+  color: #dc2626;
+  font-size: 1.2rem;
+  font-family: "Poppins", sans-serif;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
+  .nav-menu {
+    position: fixed;
+    left: -100%;
+    top: 70px;
+    flex-direction: column;
+    background: rgba(255, 255, 255, 0.98);
+    width: 100%;
+    text-align: center;
+    transition: 0.3s;
+    box-shadow: 0 10px 27px rgba(0, 0, 0, 0.05);
+    padding: 20px 0;
+  }
+
+  .nav-menu.active {
+    left: 0;
+  }
+
+  .nav-item {
+    margin: 10px 0;
+  }
+
+  .nav-link {
+    padding: 15px 20px;
+    font-size: 1rem;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+
+  .nav-container {
+    padding: 0 15px;
+  }
+
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
   .container {
     padding: 20px 15px;
+    margin-top: 80px;
   }
 
   h1 {
@@ -345,8 +861,22 @@ li {
 }
 
 @media (max-width: 480px) {
+  .nav-container {
+    padding: 0 10px;
+  }
+
+  .nav-logo a {
+    font-size: 1.3rem;
+  }
+
+  .nav-link {
+    padding: 12px 15px;
+    font-size: 0.9rem;
+  }
+
   .container {
     padding: 15px 10px;
+    margin-top: 75px;
   }
 
   h1 {
@@ -400,4 +930,180 @@ section:focus-within {
 
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(135deg, #ff5252, #26a69a);
+}
+
+/* Blog sayfası için yeni sınıflar */
+.ai-personalization,
+.drone-delivery,
+.electric-vehicles,
+.crypto-payment-future,
+.subscription-models,
+.virtual-restaurants,
+.future-logistics,
+.customer-experience {
+  background: #ffffff;
+  color: #2d3748;
+  border: 2px solid rgba(220, 38, 38, 0.15);
+  position: relative;
+}
+
+.ai-personalization::before {
+  content: "🧠";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.1;
+}
+
+.drone-delivery::before {
+  content: "🚁";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.1;
+}
+
+.electric-vehicles::before {
+  content: "⚡";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.1;
+}
+
+.crypto-payment-future::before {
+  content: "💰";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.1;
+}
+
+.subscription-models::before {
+  content: "📦";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.1;
+}
+
+.virtual-restaurants::before {
+  content: "🍳";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.1;
+}
+
+.future-logistics::before {
+  content: "🚀";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.1;
+}
+
+.customer-experience::before {
+  content: "🌐";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.1;
+}
+
+.seo-summary {
+  background: #fef2f2;
+  border-left: 5px solid #dc2626;
+  padding: 20px;
+  margin: 30px 0;
+  border-radius: 8px;
+}
+
+.seo-summary h3 {
+  color: #dc2626;
+  margin-bottom: 15px;
+}
+
+/* SSS sayfası için yeni sınıflar */
+.customer-faq,
+.courier-faq {
+  background: #ffffff;
+  color: #2d3748;
+  border: 2px solid rgba(220, 38, 38, 0.15);
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.customer-faq::before {
+  content: "🛒";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.1;
+}
+
+.courier-faq::before {
+  content: "🚴";
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 2rem;
+  opacity: 0.1;
+}
+
+.customer-faq h3,
+.courier-faq h3 {
+  color: #dc2626;
+  margin-bottom: 25px;
+  text-align: center;
+}
+
+.customer-faq .faq-item,
+.courier-faq .faq-item {
+  background: #fef2f2;
+  border-left: 5px solid #dc2626;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.customer-faq .faq-item:hover,
+.courier-faq .faq-item:hover {
+  transform: translateX(5px);
+  box-shadow: 0 4px 15px rgba(220, 38, 38, 0.1);
+}
+
+.customer-faq .faq-item h4,
+.courier-faq .faq-item h4 {
+  color: #1c1c1e;
+  margin-bottom: 15px;
+  font-size: 1.1rem;
+}
+
+.customer-faq .faq-item p,
+.courier-faq .faq-item p {
+  margin-bottom: 15px;
+  line-height: 1.6;
+}
+
+.customer-faq .faq-item ul,
+.courier-faq .faq-item ul {
+  margin: 15px 0;
+  padding-left: 20px;
+}
+
+.customer-faq .faq-item li,
+.courier-faq .faq-item li {
+  margin-bottom: 8px;
+  line-height: 1.5;
 }
